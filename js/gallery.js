@@ -90,10 +90,19 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 	}
 }
 
+function iterateJSON(mJson){
+  for(x = 0; x<mJson.images.length; x++){
+    mImages[x] = new GalleryImage();
+    mImages[x].location = mJson.images[x].imgLocation;
+    mImages[x].date = mJson.images[x].date;
+    mImages[x].img = mJson.images[x].imgPath;
+  }
+}
+
 $(document).ready( function() {
 	
 	// This initially hides the photos' metadata information
-	$('.details').eq(0).hide();
+	// $('.details').eq(0).hide();
 	
 });
 
