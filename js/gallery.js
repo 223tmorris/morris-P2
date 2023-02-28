@@ -100,7 +100,25 @@ function iterateJSON(mJson){
 }
 
 $(document).ready( function() {
-	
+	$("#nextPhoto").position({
+    my: "right bottom",
+    at: "right bottom",
+    of: "#nav"
+  });
+
+  const urlParams = new URLSearchParams(window.location.search);
+
+  for(const [key, value] of urlParams){
+    console.log(`${key}:${value}`);
+    mUrl = value;
+  }
+
+  if(mUrl == undefined){
+    mUrl = "images.json";
+  }
+
+  fetchJSON();
+
 	// This initially hides the photos' metadata information
 	// $('.details').eq(0).hide();
 	
